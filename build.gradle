@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		maven{
+			url("http://repo1.maven.org/maven2/");
+		}
+		maven{
+			url("http://maven.aliyun.com/nexus/content/groups/public");
+		}
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+//apply plugin: 'war'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+	maven{
+		url("http://repo1.maven.org/maven2/");
+	}
+	maven{
+		url("http://maven.aliyun.com/nexus/content/groups/public");
+	}
+	mavenCentral()
+}
+
+//设置jdk的版本
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+//一个简单的 spring boot + gradle + mysql 项目
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	runtime("mysql:mysql-connector-java")
+	compile("org.springframework.boot:spring-boot-starter-aop")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile("org.springframework.boot:spring-boot-starter")
+	compile("org.springframework.boot:spring-boot-starter-test")
+}
